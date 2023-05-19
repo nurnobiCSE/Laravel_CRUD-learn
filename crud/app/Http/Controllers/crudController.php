@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\employee;
 use Illuminate\Http\Request;
-
+ 
 class crudController extends Controller
 {
     public function showData(){
@@ -19,8 +20,15 @@ class crudController extends Controller
             'lname'=>'required|max:10',
             'email'=>'required|email'
         ];
-
         $this->validate($request,$filds);
-        return $request->all();
+
+
+        $employee = new employee();
+        $employee->firstname = $request->fname;
+        $employee->lastname = $request->lname;
+        $employee->email = $request->email;
+        $employee->save();
+        session()->flash('msg', "added successfully!");
+        return redirect()->back();
     }
 }
