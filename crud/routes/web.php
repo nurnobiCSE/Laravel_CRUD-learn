@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',[crudController::class,'showData']);
 Route::get('/add-data',[crudController::class,'addData']);
-Route::get('/edit-data/{id}',[crudController::class,'editData']);
-// now create route for data post to db
 Route::post('/store-data',[crudController::class,'storeData']);
+Route::get('/edit-data/{id}',[crudController::class,'editData']);
 Route::post('/update-data/{id}',[crudController::class,'updateData']);
+Route::get('/delete-data/{id}',[crudController::class,'deleteData']);

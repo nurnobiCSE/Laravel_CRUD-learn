@@ -55,4 +55,11 @@ class crudController extends Controller
         session()->flash('msg', "Updateed successfully!");
         return redirect('/');
     }
+    public function deleteData(Request $request,$id=null){
+        $deleteData = employee::find($id);
+        $deleteData->delete();
+        session()->flash('msg', "Data has been deleted!");
+        return redirect('/');
+
+    }
 }
