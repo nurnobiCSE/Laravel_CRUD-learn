@@ -8,7 +8,8 @@ use Illuminate\Http\Request;
 class crudController extends Controller
 {
     public function showData(){
-        return view('index');
+        $allData = employee::paginate(2);
+        return view('index',compact('allData'));
     }
 
     public function addData(){
@@ -29,6 +30,6 @@ class crudController extends Controller
         $employee->email = $request->email;
         $employee->save();
         session()->flash('msg', "added successfully!");
-        return redirect()->back();
+        return redirect('/');
     }
 }

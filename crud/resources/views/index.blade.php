@@ -15,26 +15,33 @@
     
     <div class="container">
         <a href="{{ url('/add-data') }}" class="btn btn-primary my-3">Add Data</a>
+        @if (Session::has('msg'))
+        <p class="alert alert-success">{{ Session::get('msg') }}</p>
+        @endif
         <table class="table table-dark table-striped">
             <thead>
                 <tr>
-                  <th scope="col">#</th>
+                  <th scope="col">SL.NO</th>
                   <th scope="col">First Name</th>
                   <th scope="col">Last Name</th>
                   <th scope="col">Email</th>
-                  <th scope="col">Action</th>
+                  <th scope="col">Action/Update</th>
                 </tr>
               </thead>
               <tbody>
+                @foreach ($allData as $key=>$data )
                 <tr>
-                  <th scope="row">1</th>
-                  <td>Mark</td>
-                  <td>Ottrrrrrrrrrro</td>
-                  <td>@mdorrrrrrrrrrrrrrrrr</td>
+                  <th scope="row">{{ $key+1 }}</th>
+                  <td>{{ $data->firstname }}</td>
+                  <td>{{ $data->lastname }}</td>
+                  <td>{{ $data->email }}</td>
                   <td><a href="" class="btn btn-info">Edit</a> <a href="" class="btn btn-danger">Delete</a></td>
                 </tr>
+                @endforeach
+               
               </tbody>
           </table>
+          {{ $allData-> links() }}
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
  

@@ -10,14 +10,13 @@
 
     <title>Laravel || CRUD</title>
   </head>
-  <body>
+  <body> 
+    <br><br>
     <center><h2>Laravel CRUD system</h2></center>
     
     <div class="container">
         <a href="{{ url('/') }}" class="btn btn-primary my-3">show Data</a>
-        @if (Session::has('msg'))
-        <p class="alert alert-success">{{ Session::get('msg') }}</p>
-        @endif
+       
          <form action="{{ url('/store-data') }}" method="post">
             @csrf
             <div class="form-group">
