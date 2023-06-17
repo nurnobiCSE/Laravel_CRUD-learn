@@ -35,7 +35,7 @@
                   <td>{{ $data->firstname }}</td>
                   <td>{{ $data->lastname }}</td>
                   <td>{{ $data->email }}</td>
-                  <td><a href="" class="btn btn-info">Edit</a> <a href="" class="btn btn-danger">Delete</a></td>
+                  <td><a href="{{ url('/edit-data/'.$data->id) }}" class="btn btn-info">Edit</a> <a href="" class="btn btn-danger">Delete</a></td>
                 </tr>
                 @endforeach
                
