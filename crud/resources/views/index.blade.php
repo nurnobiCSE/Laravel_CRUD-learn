@@ -12,9 +12,20 @@
   </head>
   <body>
     <center><h2>Laravel CRUD system</h2></center>
+       
+    <center><h2>Welcome to {{ Auth::user()->name }}</h2></center>
     
     <div class="container">
         <a href="{{ url('/add-data') }}" class="btn btn-primary my-3">Add Data</a>
+        
+        <form action="{{ url('logout') }}" method="POST" class="d-flex" role="search">
+          @csrf
+          @method('DELETE') 
+
+          <button class="btn-danger btn"> Logout</button>
+        </form>
+
+
         @if (Session::has('msg'))
         <p class="alert alert-success">{{ Session::get('msg') }}</p>
         @endif

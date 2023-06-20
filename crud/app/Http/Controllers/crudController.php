@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class crudController extends Controller
 {
     public function showData(){
-        $allData = employee::Paginate(2);  //for keep only previous and next button (::simplePaginate(2))
+        $allData = employee::orderBy('id','desc')->Paginate(2);  //for keep only previous and next button (::simplePaginate(2))
         return view('index',compact('allData'));
     }
 
