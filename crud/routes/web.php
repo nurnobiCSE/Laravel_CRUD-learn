@@ -28,7 +28,7 @@ Route::group(['middleware' => 'guest'],function(){
 });
 
 Route::group(['middleware' => 'auth'],function(){
-    Route::get('/',[crudController::class,'showData']);
+    Route::get('/',[crudController::class,'showData'])->name('web.index');
     Route::get('/add-data',[crudController::class,'addData']);
     Route::post('/store-data',[crudController::class,'storeData']);
     Route::get('/edit-data/{id}',[crudController::class,'editData']);

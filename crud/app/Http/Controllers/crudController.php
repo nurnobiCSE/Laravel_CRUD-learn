@@ -4,12 +4,22 @@ namespace App\Http\Controllers;
 
 use App\Models\employee;
 use Illuminate\Http\Request;
- 
+use Illuminate\Support\Facades\DB;
+
 class crudController extends Controller
 {
-    public function showData(){
-        $allData = employee::orderBy('id','desc')->Paginate(2);  //for keep only previous and next button (::simplePaginate(2))
-        return view('index',compact('allData'));
+    public function showData(Request $request){
+        if(isset($_GET['query'])){
+            $search_text = $_GET['query'];
+            $names = DB::table('employees')->where('firstname','LIKE','%'.$search_text.'%')->paginate(2);
+            $names->appends($request->all());
+            return view('index',['names'=>$names]);
+        }else{
+
+            $allData = employee::orderBy('id','desc')->Paginate(2);  //for keep only previous and next button (::simplePaginate(2))
+            return view('index',compact('allData'));
+        }
+       
     }
 
     public function addData(){

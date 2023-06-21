@@ -37,12 +37,12 @@
                             @csrf
                             <div class="mb-3">
                                 <label for="name" class="form-label">Name</label>
-                                <input type="text" name="name" class="form-control" id="name" placeholder="enter your name" required value="nur">
+                                <input type="text" name="name" class="form-control" id="name" placeholder="enter your name" required >
                             </div>
                             
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email</label>
-                                <input type="email" name="email" class="form-control  @error('email') is-invalid @enderror" id="email" placeholder="enter your email" required value="nur@gmail.com">
+                                <input type="email" name="email" class="form-control  @error('email') is-invalid @enderror" id="email" placeholder="enter your email" required >
                                 @error('email')
                                 <span class="text-danger">{{ $message }}</span>
                                 @enderror
@@ -50,7 +50,7 @@
                             
                             <div class="mb-3">
                                 <label for="password" class="form-label">Password</label>
-                                <input type="password" name="password" class="form-control" id="password" placeholder="enter your secret password" required value="123">
+                                <input type="password" name="password" class="form-control" id="password" placeholder="enter your secret password" required >
                             </div>
                             <div class="mb-3">
                                 <div class="d-grid">

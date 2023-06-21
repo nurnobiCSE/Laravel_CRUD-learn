@@ -27,7 +27,8 @@ class AuthController extends Controller
                 'required',
                 'email',
                 Rule::unique('users', 'email'),
-            ] 
+            ] ,
+            
         ]);
 
         $user = new User();
